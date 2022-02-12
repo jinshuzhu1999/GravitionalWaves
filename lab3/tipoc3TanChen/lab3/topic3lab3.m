@@ -39,13 +39,13 @@ for i = 1:length(iLIGOnew(:,1))
 
 end
 
-iLIGOturn = [[0,iLIGOnew(1,2)];iLIGOturn];%为信号添加0的频率与对应的信号强度
+iLIGOturn = [[0,iLIGOnew(1,2)];iLIGOturn];%为信号添加0的频率与对应的信号强度，且截至至fs/2
 
 iLIGO = [[0,iLIGO(1,2)];iLIGO];
 
 %混入高斯噪音
 fltrOrdr = 100;%滤波器阶数
-n_sampl = 5*fs;%采样频率
+n_sampl=20000;%采样数量
 outNoise = statgaussnoisegen(n_sampl,iLIGOturn,fltrOrdr,fs);
 
 % 绘制PSD图
